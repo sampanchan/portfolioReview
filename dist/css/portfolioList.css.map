@@ -1,0 +1,1 @@
+{"version":3,"sources":["portfolioList.scss","portfolioList.css"],"names":[],"mappings":"AAEA,YAAI;AAEJ;CACC,sBAAsB;ACFvB","file":"portfolioList.css","sourcesContent":["\n\n@use 'reset';\n\n* {\n\tbox-sizing: border-box;\n}","@use 'reset';\n* {\n\tbox-sizing: border-box;\n}\n"]}

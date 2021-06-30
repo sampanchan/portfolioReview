@@ -52,11 +52,59 @@ body {
 			width:50px;
 		}
 	}
+	.toggle{
+		opacity: 0;
+	}
+	.toggle:checked + nav{
+		display: block;
+	}
+	label{
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 10px;
+		// font-size: 50px;
+		z-index: 6;
+		color: white;
+		// @include mixins.bp-medium{
+		// 	display: none;
+		// }
+		
+		span{
+			width: 50px;
+			height: 5px;
+			display: block;
+			background-color: white;
+			margin:10px;
+			transition: .5s;
+		}
+
+	}
 	.red-bar{
 		background-color: #620505;
 		height: 75px;
 		grid-column:2 ;
 		border: solid black 2px;
+	}
+	.nav{
+		display: block;
+		
+	}
+	.toggle:checked ~ label{
+		&:hover span{
+			background-color: white;
+		}
+		span{
+			background-color: black;
+			&:nth-child(1){
+				transform: translateY(15px) rotate(-405deg) ;
+			
+			}
+			&:nth-child(2){
+				transform: rotate(405deg);
+			}
+			
+		}
 	}
 	.mobile-nav{
 		grid-column: 3;
@@ -166,15 +214,28 @@ main{
 	display: grid;
 	grid-template-columns: 75px 1fr 1fr 75px ;
 	grid-template-rows: repeat(12,88px);
-	.section-bar-red{
+
+	#red-bar{
+		border: 2px solid black;
 		background-color: #620505;
 		width:75px;
 		border: solid black 2px;
 	}
-	.section-bar{
+	#normal-bar{
+		border-bottom: none;
 		background-color: #EBE0CC;
 		width:75px;	
+		
 	}
+	.section-bar-red{
+		border-top:none ;
+	}
+	// .section-bar-red{
+	
+	// }
+	// .section-bar{
+		
+	// }
 	.bar-three{
 		grid-row: 1;
 		grid-column: 1;
@@ -186,10 +247,15 @@ main{
 		border-left:none;
 	}
 	.bar-five{
-		border-top: solid black 2px;
+		border: none;
+		grid-row: 1;
+		grid-column: 4;
 	}
 	.bar-six{
-		border-bottom: solid black 2px;
+		border: none;
+		grid-row: 2;
+		grid-column: 1;
+		border-right: black solid 2px;
 	}
 	.bar-seven{
 		border-bottom: solid black 2px;
@@ -204,12 +270,12 @@ main{
     	grid-column: 4;
 	}
 	.bar-nine{
-		border-bottom: none;
+		border-left: black solid 2px;
 		grid-row: 3;
     	grid-column: 4;
 	}
 	.bar-ten{
-		border-bottom: solid black 2px;
+		border-right: black solid 2px;
 		grid-row: 4;
 		grid-column: 1;
 	}
@@ -227,12 +293,12 @@ main{
     	grid-column: 4;
 	}
 	.bar-thirteen{
-		border-bottom: none;
+		border-left: black solid 2px;
 		grid-row: 5;
     	grid-column: 4;
 	}
 	.bar-fourteen{
-		border-bottom: solid black 2px;
+		border-right: black solid 2px;
 		grid-row: 6;
 		grid-column: 1;
 	}
@@ -250,12 +316,12 @@ main{
     	grid-column: 4;
 	}
 	.bar-seventeen{
-		border-bottom: none;
+		border-left: black solid 2px;
 		grid-row: 7;
     	grid-column: 4;
 	}
 	.bar-eighteen{
-		border-bottom: solid black 2px;
+		border-right: black solid 2px;
 		grid-row: 8;
 		grid-column: 1;
 	}
@@ -273,12 +339,12 @@ main{
     	grid-column: 4;
 	}
 	.bar-twentyone{
-		border-bottom: none;
+		border-left: black solid 2px;
 		grid-row: 9;
     	grid-column: 4;
 	}
 	.bar-twentytwo{
-		border-bottom: solid black 2px;
+		border-right: black solid 2px;
 		grid-row: 10;
 		grid-column: 1;
 	}
@@ -296,12 +362,12 @@ main{
     	grid-column: 4;
 	}
 	.bar-twentyfive{
-		border-bottom: none;
+		border-left: black solid 2px;
 		grid-row: 11;
     	grid-column: 4;
 	}
 	.bar-twentysix{
-		border-bottom: solid black 2px;
+		border-right: black solid 2px;
 		grid-row: 12;
 		grid-column: 1;
 	}
@@ -310,9 +376,9 @@ main{
 		
 		img{
 			width: 176px;
-			border-right: solid black 2px;
-			border-left: solid black 2px;
-			border-bottom: solid black 2px;
+			// border-right: solid black 2px;
+			// border-left: solid black 2px;
+			// border-bottom: solid black 2px;
 		}
 	}
 	.student-a{
@@ -343,8 +409,8 @@ main{
 		font-weight: 200;
 		font-size: 110px;
 		background-color: #EBE0CC;
-		border-right: solid black 2px;
-		border-bottom: solid black 2px;
+		border: solid black 2px;
+		// border-bottom: solid black 2px;
 		text-transform:uppercase ;
 		
 	}
@@ -380,6 +446,73 @@ main{
 		border-left:  solid black 2px;
 	}
 }
+.seventh-quarter-container{
+	.bar-five,
+	.bar-six{
+	border: none;
+	}
+	
+	#red-bar{
+		border: 2px solid black;
+	}
+	#normal-bar{
+		border-bottom: none;
+		
+	}
+	.bar-five{
+		border-top: black solid 2px;
+		border-left: black solid 2px;
+	}
+	.bar-six,
+	.bar-ten,
+	.bar-fourteen,
+	.bar-eighteen,
+	.bar-twentytwo,
+	.bar-twentysix{
+		border-right: black solid 2px;
+	}
+	.bar-nine,
+	.bar-thirteen,
+	.bar-seventeen,
+	.bar-twentyone,
+	.bar-twentyfive{
+		border-left: black solid 2px;
+	}
+
+
+	
+	.section-bar-red{
+		border-top:none ;
+	}
+	.student-list{
+		grid-column: 2/4;
+		grid-row: 6;
+		// border: solid black 2px;
+		// border-top: none;
+		align-self: center;
+		.student-container{
+			margin:2rem;
+			>p{
+				margin:0px;
+			}
+			.student-name{
+				font-weight: 500;
+			}
+			.student-discipline{
+				font-weight: 300;
+			}
+			a{
+				text-decoration: none;
+				color: gray;
+			}
+			
+		}
+
+
+	}
+
+	
+}
 footer{
 	display: grid;
 	grid-template-columns: 1fr ;
@@ -389,5 +522,9 @@ footer{
 		font-size: 12px;
 		align-self: center;
 	}
+	
+}
+.footer{
+	border-top: solid black 2px;
 }
 
