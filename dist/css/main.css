@@ -39,6 +39,11 @@ body {
 	grid-template-columns: 75px 1fr 75px;
 	-webkit-align-items: center;
 	        align-items: center;
+	margin-top: 0;
+}
+
+.header .logo {
+	grid-row: 1;
 }
 
 .header .logo img {
@@ -53,6 +58,24 @@ body {
 	display: block;
 }
 
+.header label {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 10px;
+	z-index: 6;
+	color: white;
+}
+
+.header label span {
+	width: 50px;
+	height: 5px;
+	display: block;
+	background-color: white;
+	margin: 10px;
+	transition: .5s;
+}
+
 .header .red-bar {
 	background-color: #620505;
 	height: 75px;
@@ -61,7 +84,25 @@ body {
 }
 
 .header .nav {
-	display: none;
+	display: block;
+}
+
+.header .toggle:checked ~ label:hover span {
+	background-color: white;
+}
+
+.header .toggle:checked ~ label span {
+	background-color: black;
+}
+
+.header .toggle:checked ~ label span:nth-child(1) {
+	-webkit-transform: translateY(15px) rotate(-405deg);
+	        transform: translateY(15px) rotate(-405deg);
+}
+
+.header .toggle:checked ~ label span:nth-child(2) {
+	-webkit-transform: rotate(405deg);
+	        transform: rotate(405deg);
 }
 
 .header .mobile-nav {
@@ -164,15 +205,20 @@ main .content-container .main-title h3 {
 	grid-template-rows: repeat(12, 88px);
 }
 
-.section-container .section-bar-red {
+.section-container #red-bar {
+	border: 2px solid black;
 	background-color: #620505;
 	width: 75px;
 	border: solid black 2px;
 }
 
-.section-container .section-bar {
+.section-container #normal-bar {
 	background-color: #EBE0CC;
 	width: 75px;
+}
+
+.section-container .section-bar-red {
+	border-top: none;
 }
 
 .section-container .bar-three {
@@ -188,15 +234,17 @@ main .content-container .main-title h3 {
 }
 
 .section-container .bar-five {
-	border-top: solid black 2px;
+	border-top: black solid 2px;
+	border-left: black solid 2px;
 	grid-row: 1;
 	grid-column: 4;
 }
 
 .section-container .bar-six {
-	border-bottom: solid black 2px;
+	border: none;
 	grid-row: 2;
 	grid-column: 1;
+	border-right: black solid 2px;
 }
 
 .section-container .bar-seven {
@@ -214,13 +262,13 @@ main .content-container .main-title h3 {
 }
 
 .section-container .bar-nine {
-	border-bottom: none;
+	border-left: black solid 2px;
 	grid-row: 3;
 	grid-column: 4;
 }
 
 .section-container .bar-ten {
-	border-bottom: solid black 2px;
+	border-right: black solid 2px;
 	grid-row: 4;
 	grid-column: 1;
 }
@@ -240,13 +288,13 @@ main .content-container .main-title h3 {
 }
 
 .section-container .bar-thirteen {
-	border-bottom: none;
+	border-left: black solid 2px;
 	grid-row: 5;
 	grid-column: 4;
 }
 
 .section-container .bar-fourteen {
-	border-bottom: solid black 2px;
+	border-right: black solid 2px;
 	grid-row: 6;
 	grid-column: 1;
 }
@@ -266,13 +314,13 @@ main .content-container .main-title h3 {
 }
 
 .section-container .bar-seventeen {
-	border-bottom: none;
+	border-left: black solid 2px;
 	grid-row: 7;
 	grid-column: 4;
 }
 
 .section-container .bar-eighteen {
-	border-bottom: solid black 2px;
+	border-right: black solid 2px;
 	grid-row: 8;
 	grid-column: 1;
 }
@@ -292,13 +340,13 @@ main .content-container .main-title h3 {
 }
 
 .section-container .bar-twentyone {
-	border-bottom: none;
+	border-left: black solid 2px;
 	grid-row: 9;
 	grid-column: 4;
 }
 
 .section-container .bar-twentytwo {
-	border-bottom: solid black 2px;
+	border-right: black solid 2px;
 	grid-row: 10;
 	grid-column: 1;
 }
@@ -318,22 +366,20 @@ main .content-container .main-title h3 {
 }
 
 .section-container .bar-twentyfive {
-	border-bottom: none;
+	border-left: black solid 2px;
 	grid-row: 11;
 	grid-column: 4;
 }
 
 .section-container .bar-twentysix {
-	border-bottom: solid black 2px;
+	border-right: black solid 2px;
+	border-bottom: black solid 2px;
 	grid-row: 12;
 	grid-column: 1;
 }
 
 .section-container .section-student img {
 	width: 176px;
-	border-right: solid black 2px;
-	border-left: solid black 2px;
-	border-bottom: solid black 2px;
 }
 
 .section-container .student-a {
@@ -370,9 +416,18 @@ main .content-container .main-title h3 {
 	font-weight: 200;
 	font-size: 110px;
 	background-color: #EBE0CC;
-	border-right: solid black 2px;
-	border-bottom: solid black 2px;
 	text-transform: uppercase;
+}
+
+.section-container #odd-letter {
+	border-left: solid black 2px;
+	border-bottom: solid black 2px;
+}
+
+.section-container #even-letter {
+	border-top: solid black 2px;
+	border-bottom: solid black 2px;
+	border-right: solid black 2px;
 }
 
 .section-container .letter-one {
@@ -384,31 +439,30 @@ main .content-container .main-title h3 {
 	grid-column: 2;
 	grid-row: 3/5;
 	border-right: none;
-	border-left: solid black 2px;
 }
 
 .section-container .letter-three {
 	grid-column: 3;
 	grid-row: 7/5;
+	border-top: solid black 2px;
 }
 
 .section-container .letter-four {
 	grid-column: 2;
 	grid-row: 9/7;
 	border-right: none;
-	border-left: solid black 2px;
 }
 
 .section-container .letter-five {
 	grid-column: 3;
 	grid-row: 11/9;
+	border-top: solid black 2px;
 }
 
 .section-container .letter-six {
 	grid-column: 2;
 	grid-row: 13/11;
-	border-right: none;
-	border-left: solid black 2px;
+	border-bottom: none;
 }
 
 .seventh-quarter-container .bar-five,
